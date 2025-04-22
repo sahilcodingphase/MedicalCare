@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Service</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!--navbar-->
+    <div id="navbar-placeholder"></div>
+    <script src="navFoot.js"></script>
+    <script src="sw-register.js"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swUrl = '/service-worker.js';
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+    <header>
+        <h1>Hospital Services and Medical Care</h1>
+        <h2>Compassionate Care for You and Your Family</h2>
+    </header>
+    <main>
+        <section class="services-section">
+            <h2>Our Medical Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="img2.jpg" alt="Emergency Care">
+                    <h3>Emergency Care</h3>
+                    <p>24/7 emergency services with state-of-the-art facilities and expert medical staff.</p>
+                </div>
+                <div class="service-card">
+                    <img src="img3.jpg" alt="Cardiology">
+                    <h3>Cardiology</h3>
+                    <p>Comprehensive heart care including diagnostics, treatment, and rehabilitation.</p>
+                </div>
+                <div class="service-card">
+                    <img src="img4.jpg" alt="Pediatrics">
+                    <h3>Pediatrics</h3>
+                    <p>Specialized care for infants, children, and adolescents in a child-friendly environment.</p>
+                </div>
+                <div class="service-card">
+                    <img src="img5.jpg" alt="Orthopedics">
+                    <h3>Orthopedics</h3>
+                    <p>Advanced treatment for musculoskeletal conditions, including joint replacements.</p>
+                </div>
+                <div class="service-card">
+                    <img src="img6.jpg" alt="Maternity Care">
+                    <h3>Maternity Care</h3>
+                    <p>Complete prenatal, delivery, and postnatal care for mothers and newborns.</p>
+                </div>
+                <div class="service-card">
+                    <img src="img7.jpg" alt="Diagnostics">
+                    <h3>Diagnostics</h3>
+                    <p>Advanced imaging and laboratory services for accurate diagnosis and treatment.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

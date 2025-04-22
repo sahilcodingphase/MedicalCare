@@ -1,0 +1,23 @@
+@import 'sprite';
+
+// Example usage of sprite icons
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+// Individual icons
+.icon-emergency {
+  @include sprite($sprite-emergency);
+}
+
+.icon-cardiology {
+  @include sprite($sprite-cardiology);
+}
+
+.icon-pediatrics {
+  @include sprite($sprite-pediatrics);
+}
+
+// Or generate all icons at once
+@include sprites(($sprite-emergency, $sprite-cardiology, $sprite-pediatrics)); 

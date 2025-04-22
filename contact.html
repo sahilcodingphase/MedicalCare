@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="index.css">
+  <!-- <style>
+    /* Contact page specific CSS (rest CSS index.css me hoga) */
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    .success {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+      }
+    }
+  </style> -->
+</head>
+<body>
+
+<!--navbar-->
+<div id="navbar-placeholder"></div>
+<script src="navFoot.js"></script>
+
+<div class="containerC">
+  <h2>Contact Us</h2>
+  <form id="contactForm">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+      <p class="error" id="nameError"></p>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email">
+      <p class="error" id="emailError"></p>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number">
+      <p class="error" id="phoneError"></p>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" placeholder="Type your message..."></textarea>
+      <p class="error" id="messageError"></p>
+    </div>
+
+    <button type="submit">Send Message</button>
+    <p class="success" id="successMessage"></p>
+  </form>
+</div>
+
+<script>
+  // Contact Form Validation
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Reset error messages
+    document.getElementById("nameError").textContent = "";
+    document.getElementById("emailError").textContent = "";
+    document.getElementById("phoneError").textContent = "";
+    document.getElementById("messageError").textContent = "";
+    document.getElementById("successMessage").textContent = "";
+
+    // Get form values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    let isValid = true;
+
+    // Validation
+    if (name === "") {
+      document.getElementById("nameError").textContent = "Name is required.";
+      isValid = false;
+    }
+    if (email === "") {
+      document.getElementById("emailError").textContent = "Email is required.";
+      isValid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      document.getElementById("emailError").textContent = "Invalid email format.";
+      isValid = false;
+    }
+    if (phone === "") {
+      document.getElementById("phoneError").textContent = "Phone number is required.";
+      isValid = false;
+    } else if (!/^\d{10}$/.test(phone)) {
+      document.getElementById("phoneError").textContent = "Enter 10 digit number.";
+      isValid = false;
+    }
+    if (message === "") {
+      document.getElementById("messageError").textContent = "Message is required.";
+      isValid = false;
+    }
+
+    if (isValid) {
+      document.getElementById("successMessage").textContent = "Message sent successfully!";
+      // Optional: clear the form
+      document.getElementById("contactForm").reset();
+    }
+  });
+</script>
+
+</body>
+</html>
